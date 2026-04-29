@@ -20,7 +20,7 @@ TEST(Transform2dTest, Constructor) {
 TEST(Transform2dTest, Translate) {
     Transform2d transform({1.0, 2.0, 1.0});
 
-    transform.translate(Eigen::Vector2d(3.0, 4.0));
+    transform.Translate(Eigen::Vector2d(3.0, 4.0));
 
     EXPECT_NEAR(transform.vec().x(), 4.0, EPS);
     EXPECT_NEAR(transform.vec().y(), 6.0, EPS);
@@ -31,7 +31,7 @@ TEST(Transform2dTest, Translate) {
 TEST(Transform2dTest, Rotate) {
     Transform2d transform({1.0, 0.0, 1.0});
 
-    transform.rotate(M_PI / 2.0);
+    transform.Rotate(M_PI / 2.0);
 
     EXPECT_NEAR(transform.vec().x(), 0.0, EPS);
     EXPECT_NEAR(transform.vec().y(), 1.0, EPS);
@@ -42,8 +42,8 @@ TEST(Transform2dTest, Rotate) {
 TEST(Transform2dTest, Chaining) {
     Transform2d transform({1.0, 0.0, 1.0});
 
-    transform.translate({1.0, 1.0})
-             .rotate(M_PI / 2.0);
+    transform.Translate({1.0, 1.0})
+             .Rotate(M_PI / 2.0);
 
     EXPECT_NEAR(transform.vec().x(), -1.0, EPS);
     EXPECT_NEAR(transform.vec().y(), 2.0, EPS);

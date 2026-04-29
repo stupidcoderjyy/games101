@@ -7,7 +7,7 @@
 Transform2d::Transform2d(Eigen::Vector3d vec): vec_(std::move(vec)) {
 }
 
-Transform2d& Transform2d::translate(const Eigen::Vector2d &delta) {
+Transform2d& Transform2d::Translate(const Eigen::Vector2d &delta) {
     Eigen::Matrix3d matrix;
     matrix << 1, 0, delta.x(),
               0, 1, delta.y(),
@@ -16,7 +16,7 @@ Transform2d& Transform2d::translate(const Eigen::Vector2d &delta) {
     return *this;
 }
 
-Transform2d& Transform2d::rotate(double rad) {
+Transform2d& Transform2d::Rotate(double rad) {
     double c = std::cos(rad), s = std::sin(rad);
     Eigen::Matrix3d matrix;
     matrix << c, -s, 0,

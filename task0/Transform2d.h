@@ -4,13 +4,13 @@
 
 #ifndef GAMES101_TRANSFORM2D_H
 #define GAMES101_TRANSFORM2D_H
-#include<Eigen/Core>
+#include <Eigen/Core>
 
 class Transform2d {
 public:
     explicit Transform2d(Eigen::Vector3d vec);
-    Transform2d& translate(const Eigen::Vector2d& delta);
-    Transform2d& rotate(double rad);
+    Transform2d& Translate(const Eigen::Vector2d& delta);
+    Transform2d& Rotate(double rad);
     const Eigen::Vector3d& vec() const {
         return vec_;
     }
