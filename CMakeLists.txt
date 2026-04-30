@@ -20,7 +20,7 @@ find_package(OpenCV REQUIRED)
 include(FetchContent)
 FetchContent_Declare(
         googletest
-        SOURCE_DIR "${PROJECT_SOURCE_DIR}/thirdparty/googletest-1.17.0"
+        SOURCE_DIR "${PROJECT_SOURCE_DIR}/thirdparty/googletest"
 )
 FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
