@@ -4,7 +4,7 @@
 
 #include "Transform2d.h"
 
-Transform2d::Transform2d(Eigen::Vector3d vec): vec_(std::move(vec)) {
+Transform2d::Transform2d(): transform_(Eigen::Matrix3d::Identity()) {
 }
 
 Transform2d& Transform2d::Translate(const Eigen::Vector2d &delta) {
@@ -12,7 +12,7 @@ Transform2d& Transform2d::Translate(const Eigen::Vector2d &delta) {
     matrix << 1, 0, delta.x(),
               0, 1, delta.y(),
               0, 0, 1;
-    vec_ = matrix * vec_;
+    transform_ = matrix * transform_;
     return *this;
 }
 
@@ -22,6 +22,6 @@ Transform2d& Transform2d::Rotate(double rad) {
     matrix << c, -s, 0,
               s, c, 0,
               0, 0, 1;
-    vec_ = matrix * vec_;
+    transform_ = matrix * transform_;
     return *this;
 }

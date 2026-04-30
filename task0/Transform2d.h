@@ -8,14 +8,14 @@
 
 class Transform2d {
 public:
-    explicit Transform2d(Eigen::Vector3d vec);
+    Transform2d();
     Transform2d& Translate(const Eigen::Vector2d& delta);
     Transform2d& Rotate(double rad);
-    const Eigen::Vector3d& vec() const {
-        return vec_;
+    Eigen::Vector3d Apply(const Eigen::Vector3d& vec) const {
+        return transform_ * vec;
     }
 private:
-    Eigen::Vector3d vec_;
+    Eigen::Matrix3d transform_;
 };
 
 #endif //GAMES101_TRANSFORM2D_H
